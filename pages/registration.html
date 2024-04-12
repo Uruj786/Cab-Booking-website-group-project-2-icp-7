@@ -8,15 +8,18 @@
     <style>
         .slider_form{
             margin-left: 750px;
-            height: 900px;
+            height: 500px;
             width: 450px;
+        }
+        .btnn{
+            width: 100%;
         }
     </style>
   </head>
   <body>
     
-    <div class="slider_form">
-        <h2 style="text-align:center; padding-bottom:10px;" data-sider-select-id="9c41c436-bd1d-436c-9fd4-c1586bf452f7"> BOOK A CAB NOW</h2>
+    <div class="slider_form bg-dark p-3">
+        <h2 class="text-white" data-sider-select-id="9c41c436-bd1d-436c-9fd4-c1586bf452f7"> BOOK A CAB NOW</h2>
         <h4 class="text-light my-1" style="text-align:left;">Trip Type </h4>
         <form id="form" action="post-trip.php" method="POST" autocomplete="on" data-gtm-form-interact-id="0">
             <select class="p-2 my-2 bg-warning" name="trip" id="select" style="height: 40px;" fdprocessedid="0tjfx3n" data-gtm-form-interact-field-id="0">
@@ -25,9 +28,9 @@
                 <option value="Rental">Rental</option>
             </select>
             <div class="oneway">
-                <input id="from" class="form-control register_form pac-target-input" name="from" type="text" placeholder="PickUp Location" required="" autocomplete="off" fdprocessedid="lavo6j" data-sider-select-id="c8fcac38-b4ba-4d09-87fa-046aca2ea386" data-sider-insert-id="2d19af30-47bf-4dec-b66d-2daa2cabd49a">
+                <input id="from" class="form-control register_form pac-target-input input-group m-1" name="from" type="text" placeholder="PickUp Location" required="" autocomplete="off" fdprocessedid="lavo6j" data-sider-select-id="c8fcac38-b4ba-4d09-87fa-046aca2ea386" data-sider-insert-id="2d19af30-47bf-4dec-b66d-2daa2cabd49a">
                 <input id="origin" type="hidden" name="origin" required="">
-                <input id="to" class="form-control register_form pac-target-input" name="to" type="text" placeholder="Drop Location" required="" fdprocessedid="cw1t7a" autocomplete="off" data-sider-insert-id="7d34b8cb-33e8-4c4e-8fc3-26acf79df803" data-sider-select-id="49cdf9fe-dc33-4e9a-a813-21bf6e41e1a6">
+                <input id="to" class="form-control register_form pac-target-input m-1" name="to" type="text" placeholder="Drop Location" required="" fdprocessedid="cw1t7a" autocomplete="off" data-sider-insert-id="7d34b8cb-33e8-4c4e-8fc3-26acf79df803" data-sider-select-id="49cdf9fe-dc33-4e9a-a813-21bf6e41e1a6">
                 <input id="destination" type="hidden" name="destination" required="">
                 <div id="result">
                     <input id="distance" type="hidden" name="distance">
@@ -51,11 +54,11 @@
                     <input class="col-5" name="timeend" style="color: black;" type="time" placeholder="Time">
                 </div>
                 <h5 class="text-light my-1">Personal Details</h5>
-                <input id="name" name="name" class="form-control register_form " type="text" placeholder="Your Name" title="Error Message" required="" fdprocessedid="zsdalu">
-                <input id="phone" name="phone" class="form-control register_form " type="number" placeholder="Your Phone Number" maxlegth="10" title="Error Message" pattern="[1-9]{1}[0-9]{9}" required="" fdprocessedid="4rm7gm">
-                <input id="email" name="email" class="form-control register_form " type="email" placeholder="Your Email ID" title="Error Message" required="" fdprocessedid="iey0h">
+                <input id="name" name="name" class="form-control register_form m-1 " type="text" placeholder="Your Name" title="Error Message" required="" fdprocessedid="zsdalu">
+                <input id="phone" name="phone" class="form-control register_form m-1 " type="number" placeholder="Your Phone Number" maxlegth="10" title="Error Message" pattern="[1-9]{1}[0-9]{9}" required="" fdprocessedid="4rm7gm">
+                <input id="email" name="email" class="form-control register_form m-1 " type="email" placeholder="Your Email ID" title="Error Message" required="" fdprocessedid="iey0h">
                 <!---<input id="email" name="email" class="form-control register_form " type="email" placeholder="Your Email id" title="Error Message" required>-->
-                <input id="submit" class="btn btn-warning p-1" type="submit" value="Book Now" style="background-color: #FFC107;" fdprocessedid="qfxs1s">
+                <button class="btnn btn btn-warning"> Book Know</button>
         
     </div></form>
 
