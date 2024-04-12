@@ -33,22 +33,22 @@
                 </select>
                 <div class="oneway">
                     <input id="from" class="form-control register_form pac-target-input input-group m-1" name="from" type="text" placeholder="PickUp Location" required="" autocomplete="off" fdprocessedid="lavo6j" data-sider-select-id="c8fcac38-b4ba-4d09-87fa-046aca2ea386" data-sider-insert-id="2d19af30-47bf-4dec-b66d-2daa2cabd49a">
+                    
                     <input id="origin" type="hidden" name="origin" required="">
                     <input id="to" class="form-control register_form pac-target-input m-1" name="to" type="text" placeholder="Drop Location" required="" fdprocessedid="cw1t7a" autocomplete="off" data-sider-insert-id="7d34b8cb-33e8-4c4e-8fc3-26acf79df803" data-sider-select-id="49cdf9fe-dc33-4e9a-a813-21bf6e41e1a6">
                     <input id="destination" type="hidden" name="destination" required="">
+                    <h5 class="text-light my-1 " data-sider-select-id="c871ea60-9bd4-415e-af97-59d96a1da987">Choose Package</h5>
+                    <select class="p-2 my-2 bg-warning" name="mySelect" data-gtm-form-interact-field-id="1">
+                        <option value="4">4Hrs 40Kms</option>
+                        <option value="6">6Hrs 60Kms</option>
+                        <option value="8">8Hrs 80Kms</option>
+                    </select>
                     <div id="result">
                         <input id="distance" type="hidden" name="distance">
                         <input id="source_pincode" type="hidden" name="source_pincode">
                         <input id="destination_pincode" type="hidden" name="destination_pincode">
                     </div>
-                    <div class="rental" style="display: none;">
-                        <h5 class="text-light my-1 ">Choose Package</h5>
-                        <select class="p-2 my-2 bg-warning" name="mySelect">
-                            <option value="4">4Hrs 40Kms</option>
-                            <option value="6">6Hrs 60Kms</option>
-                            <option value="8">8Hrs 80Kms</option>
-                        </select>
-                    </div>
+                 
                     <h5 class="text-light my-1">Choose Date and Time</h5>
                     <input id="date" class="col-6" name="date" style="color: black;" type="date" placeholder="Date" min="2024-04-12">
                     <input id="time" class="col-5" name="time" style="color: black;" type="time" placeholder="Time" data-sider-select-id="1548dacd-b330-4afa-a8c0-6d5a0bf80acd">
@@ -97,6 +97,51 @@
                 head.style.display = "block";
                 date1.style.display = "block";
                 time1.style.display = "block";
+            }
+        });
+
+        // Restrict phone number input to 10 digits
+        var phone = document.getElementById("phone");
+        phone.addEventListener("keypress", function(e) {
+            var length = phone.value.length;
+            if (length > 9 || (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) || (length === 0 && e.which === 48)) {
+                e.preventDefault();
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initially hide return date and time fields
+        var head = document.getElementById("head");
+        var date1 = document.getElementById("date1");
+        var time1 = document.getElementById("time1");
+
+        head.style.display = "none";
+        date1.style.display = "none";
+        time1.style.display = "none";
+
+        // Function to handle trip type change
+        var select = document.getElementById("select");
+        select.addEventListener("change", function() {
+            var tripType = select.value;
+            if (tripType === "One Way") {
+                // Hide return date and time fields if One Way trip is selected
+                head.style.display = "none";
+                date1.style.display = "none";
+                time1.style.display = "none";
+            } else if (tripType === "Rental") {
+                // Show choose package dropdown for Rental trip
+                document.querySelector(".rental").style.display = "block";
+                // Hide return date and time fields for Rental trip
+                head.style.display = "none";
+                date1.style.display = "none";
+                time1.style.display = "none";
+            } else {
+                // Show return date and time fields for other trip types
+                head.style.display = "block";
+                date1.style.display = "block";
+                time1.style.display = "block";
+                // Hide choose package dropdown for other trip types
+                document.querySelector(".rental").style.display = "none";
             }
         });
 
